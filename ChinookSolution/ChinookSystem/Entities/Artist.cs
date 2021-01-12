@@ -15,7 +15,8 @@ namespace ChinookSystem.Entities
     internal class Artist
     {
         private string _Name;
-        [Key]
+        
+        [Key] // Identity field in SSMS
         public int ArtistId { get; set; }
 
         [StringLength(120, ErrorMessage = "Artist name is limited to 120 characters.")]
