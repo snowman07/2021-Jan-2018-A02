@@ -30,7 +30,7 @@ namespace ChinookSystem.Entities
 
         public int? GenreId { get; set; } // nullable int
 
-        [StringLength(120, ErrorMessage = "Track name is limited to 120 characters.")]
+        [StringLength(120, ErrorMessage = "Track composer is limited to 120 characters.")]
         public string Composer 
         {
             get { return _Composer; }
@@ -42,5 +42,12 @@ namespace ChinookSystem.Entities
         public int? Bytes { get; set; } // nullable int
 
         public int UnitPrice { get; set; }
+
+
+        //navigational property
+        //child to parent (many to one)
+        public virtual Album Album { get; set; }
+        public virtual Genre Genre { get; set; }
+        public virtual MediaType MediaType { get; set; }
     }
 }
