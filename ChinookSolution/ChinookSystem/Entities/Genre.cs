@@ -27,5 +27,12 @@ namespace ChinookSystem.Entities
             set { _Name = string.IsNullOrEmpty(value) ? null : value; } 
         }
 
+
+        //navigational property
+        //one to many (parent to child)
+        //ICollection - use to hold many record of Track class
+
+        public virtual ICollection<Track> Tracks { get; set; }
+
     }
 }
