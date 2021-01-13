@@ -26,8 +26,10 @@ namespace ChinookSystem.Entities
             set{ _Name = string.IsNullOrEmpty(value) ? null : value; } // fully implemented property
         }
 
+
         // navigational property
         // one to many direction (parent to child)
+        // ICollection - use to hold many records
         public virtual ICollection<Album> Albums { get; set; }
     
     }

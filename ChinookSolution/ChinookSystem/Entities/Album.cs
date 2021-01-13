@@ -38,9 +38,10 @@ namespace ChinookSystem.Entities
             set { _ReleaseLabel = string.IsNullOrEmpty(value) ? null : value; } // fully implemented property
         }
 
-        //[NotMapped] annotations are also allowed
 
-        // navigational properties
+        //[NotMapped] annotations are also allowed - use this annotation if data is not real data, meaning its not in db
+
+        // navigational properties (not real data)
         //many to one direction (child to parent)
         public virtual Artist Artist { get; set; }
     }
