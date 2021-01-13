@@ -49,5 +49,6 @@ namespace ChinookSystem.Entities
         public virtual Album Album { get; set; }
         public virtual Genre Genre { get; set; }
         public virtual MediaType MediaType { get; set; }
+
     }
 }
