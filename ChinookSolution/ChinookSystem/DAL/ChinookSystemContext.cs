@@ -13,7 +13,7 @@ namespace ChinookSystem.DAL
 {
     internal class ChinookSystemContext:DbContext
     {
-        public ChinookSystemContext():base("name=ChinookDB")
+        public ChinookSystemContext():base("name=ChinookDB") // controller to pass context string name to db context. ChinookDB is string name for config string
         {
 
         }
