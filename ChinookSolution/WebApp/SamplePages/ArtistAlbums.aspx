@@ -4,7 +4,8 @@
     <asp:GridView ID="ArtistAlbumsList" runat="server" 
         AutoGenerateColumns="False" 
         DataSourceID="ArtistAlbumsListODS" 
-        AllowPaging="True">
+        AllowPaging="True"
+        CssClass="table table-striped" GridLines="Horizontal" BorderStyle="None">
 
         <Columns>
             <asp:BoundField DataField="Title" HeaderText="Title" 
