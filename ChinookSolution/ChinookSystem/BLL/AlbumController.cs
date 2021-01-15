@@ -13,9 +13,10 @@ using System.ComponentModel; //for ODS wizard
 
 namespace ChinookSystem.BLL
 {
-    [DataObject]
-    public class AlbumController
+    [DataObject] // to expose the class
+    public class AlbumController // interface to the outside
     {
+        //method to return data to dump or expose to the wizard. Select(query) . False=not the default query
         [DataObjectMethod(DataObjectMethodType.Select, false)]
         public List<ArtistAlbums> Albums_GetArtistAlbums()
         {
