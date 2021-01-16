@@ -35,7 +35,7 @@ namespace ChinookSystem.BLL
 
 
         [DataObjectMethod(DataObjectMethodType.Select, false)]
-        public List<ArtistAlbums> Albums_GetArlbumsForArtist(int artistid)
+        public List<ArtistAlbums> Albums_GetAlbumsForArtist(int artistid)
         {
             using (var context = new ChinookSystemContext())
             {
