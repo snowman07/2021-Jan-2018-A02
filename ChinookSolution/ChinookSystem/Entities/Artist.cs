@@ -1,36 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-#region Additional Namespace
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-#endregion
-
 namespace ChinookSystem.Entities
 {
-    [Table("Artists")] // table annotation - ("Name of SQL table")
-    internal class Artist
-    {
-        private string _Name; //fully implemented property (in ERD, "Allow Nulls" is checked thats why it needs to be fully implemented)
-        
-        [Key] // PK in SSMS, Identity field is YES in SSMS
-        public int ArtistId { get; set; }
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
-        [StringLength(120, ErrorMessage = "Artist name is limited to 120 characters.")] //Annotation of validation
-        public string Name //this property is nullable field, it means "Allow Nulls" is checked in ERD, so it needs to be fully implemented
+    internal partial class Artist
+    {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Artist()
         {
-            get { return _Name; } 
-            set{ _Name = string.IsNullOrEmpty(value) ? null : value; } // fully implemented property
+            Albums = new HashSet<Album>();
         }
 
+        public int ArtistId { get; set; }
 
-        // navigational property
-        // one to many direction (parent to child)
-        // ICollection - use to hold many records
+        [StringLength(120)]
+        public string Name { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Album> Albums { get; set; }
-    
     }
 }
