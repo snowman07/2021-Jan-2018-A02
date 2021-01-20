@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace ChinookSystem.ViewModels
 {
+
+    // This is a REUSABLE CODE for DDL(dropdown list) that has value field and display field
     public class SelectionList
     {
         //value field of the instance
