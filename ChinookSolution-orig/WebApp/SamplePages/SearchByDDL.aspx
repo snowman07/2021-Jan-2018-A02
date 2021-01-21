@@ -16,6 +16,7 @@
             </asp:LinkButton>
         </div>
     </div>
+    <%-- END of search area --%>
     <br /><br />
     <div class="row">
         <div class="offset-3">
