@@ -34,11 +34,11 @@ namespace WebApp.SamplePages
             info.Sort((x,y) => x.DisplayField.CompareTo(y.DisplayField));
 
             //setup the ddl
-            ArtistList.DataSource = info;
+            ArtistList.DataSource = info; //ArtistList is the DropDownList ID
             //ArtistList.DataTextField = "DisplayField";
             ArtistList.DataTextField = nameof(SelectionList.DisplayField); //nameof(object.prop)
             ArtistList.DataValueField = nameof(SelectionList.ValueField); //nameof(object.prop)
-            ArtistList.DataBind();
+            ArtistList.DataBind(); // use to show the data in ddl. without it, data does not get in ddl
 
             //prompt line
             ArtistList.Items.Insert(0, new ListItem("select...", "0"));
