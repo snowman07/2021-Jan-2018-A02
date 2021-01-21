@@ -25,6 +25,13 @@ namespace WebApp.SamplePages
             }
         }
 
+        #region Error Handling ODS
+        protected void SelectCheckForException(object sender, ObjectDataSourceEventArgs e)
+        {
+            MessageUserControl.HandleDataBoundException(e);
+        }
+        #endregion
+
         protected void LoadArtistList()
         {
             ArtistController sysmgr = new ArtistController();
