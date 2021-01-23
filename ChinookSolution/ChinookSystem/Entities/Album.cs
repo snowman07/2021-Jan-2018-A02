@@ -32,7 +32,7 @@ namespace ChinookSystem.Entities
         [StringLength(50, ErrorMessage = "Album release label is limited to 50 characters.")]
         public string ReleaseLabel 
         {
-            get { return ReleaseLabel; }
+            get { return _ReleaseLabel; }
             set { _ReleaseLabel = string.IsNullOrEmpty(value) ? null : value; } 
         }
 
