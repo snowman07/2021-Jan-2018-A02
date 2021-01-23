@@ -13,5 +13,12 @@ namespace WebApp.SamplePages
         {
 
         }
+
+        #region MessageUserControl Error Handling for ODS
+        protected void SelectCheckForException(object sender, ObjectDataSourceStatusEventArgs e)
+        {
+
+        }
+        #endregion
     }
 }

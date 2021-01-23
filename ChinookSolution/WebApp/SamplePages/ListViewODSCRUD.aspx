@@ -26,7 +26,9 @@
             <AlternatingItemTemplate>
                 <tr style="background-color: #FFFFFF; color: #284775;">
                     <td>
-                        <asp:Button runat="server" CommandName="Delete" Text="Delete" ID="DeleteButton" />
+                        <asp:Button runat="server" CommandName="Delete" 
+                            Text="Delete" ID="DeleteButton"
+                            OnClientClick="return confirm('Are you sure you wish to remove this album?')" />
                         <asp:Button runat="server" CommandName="Edit" Text="Edit" ID="EditButton" />
                     </td>
                     <td>
@@ -48,7 +50,8 @@
                         <asp:Button runat="server" CommandName="Cancel" Text="Cancel" ID="CancelButton" />
                     </td>
                     <td>
-                        <asp:TextBox Text='<%# Bind("AlbumId") %>' runat="server" ID="AlbumIdTextBox" /></td>
+                        <asp:TextBox Text='<%# Bind("AlbumId") %>' runat="server" 
+                            ID="AlbumIdTextBox" /></td>
                     <td>
                         <asp:TextBox Text='<%# Bind("Title") %>' runat="server" ID="TitleTextBox" /></td>
                     <td>
