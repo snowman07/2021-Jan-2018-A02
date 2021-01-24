@@ -1,4 +1,7 @@
 ﻿<%@ Page Title="ListView ODS CRUD" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ListViewODSCRUD.aspx.cs" Inherits="WebApp.SamplePages.ListViewODSCRUD" %>
+
+<%@ Register Src="~/UserControls/MessageUserControl.ascx" TagPrefix="uc1" TagName="MessageUserControl" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1>Single Record CRUD using ODS: ListView</h1>
     <div class="row">
@@ -10,6 +13,11 @@
                 This sample will use the course MessageUserControl for error handling <br />
                 This sample will use validation on the ListView control
             </blockquote>
+        </div>
+    </div>
+    <div class="row">
+        <div class="offset-2">
+            <uc1:MessageUserControl runat="server" ID="MessageUserControl" />
         </div>
     </div>
     <div class="row">
@@ -216,15 +224,18 @@
             InsertMethod="Album_Add"
             SelectMethod="Albums_List"
             UpdateMethod="Album_Update"
+             OnDeleted="DeleteCheckForException"
+             OnInserted="InsertCheckForException"
+             OnSelected="SelectCheckForException"
+             OnUpdated="UpdateCheckForException"
             OldValuesParameterFormatString="original_{0}"
             TypeName="ChinookSystem.BLL.AlbumController">
         </asp:ObjectDataSource>
         <asp:ObjectDataSource ID="ArtistListODS" runat="server" 
             OldValuesParameterFormatString="original_{0}" 
             SelectMethod="Artists_DDLList" 
+             OnSelected="SelectCheckForException"
             TypeName="ChinookSystem.BLL.ArtistController">
-
-
         </asp:ObjectDataSource>
         </div> 
         <%--end of offset-2--%>

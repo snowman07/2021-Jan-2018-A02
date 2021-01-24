@@ -15,10 +15,51 @@ namespace WebApp.SamplePages
         }
 
         #region MessageUserControl Error Handling for ODS
-        protected void SelectCheckForException(object sender, ObjectDataSourceStatusEventArgs e)
+        protected void SelectCheckForException(object sender, 
+            ObjectDataSourceStatusEventArgs e)
         {
+            MessageUserControl.HandleDataBoundException(e);
+        }
+        protected void InsertCheckForException(object sender,
+            ObjectDataSourceStatusEventArgs e)
+        {
+            if (e.Exception == null)
+            {
+                MessageUserControl.ShowInfo("Process success", "Album has been added");
+            }
+            else
+            {
+                MessageUserControl.HandleDataBoundException(e);
+            }
+            
+        }
+        protected void UpdateCheckForException(object sender,
+            ObjectDataSourceStatusEventArgs e)
+        {
+            if (e.Exception == null)
+            {
+                MessageUserControl.ShowInfo("Process success", "Album has been updates");
+            }
+            else
+            {
+                MessageUserControl.HandleDataBoundException(e);
+            }
 
         }
+        protected void DeleteCheckForException(object sender,
+            ObjectDataSourceStatusEventArgs e)
+        {
+            if (e.Exception == null)
+            {
+                MessageUserControl.ShowInfo("Process success", "Album has been removed");
+            }
+            else
+            {
+                MessageUserControl.HandleDataBoundException(e);
+            }
+
+        }
+
         #endregion
     }
 }
