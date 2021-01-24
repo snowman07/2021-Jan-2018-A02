@@ -18,17 +18,15 @@
             DELETE function of your ListView CRUD to work
             
             The DataKeyNames attribute is set to your PK field--%>
-        <asp:ListView ID="AlbumList" runat="server"
-            DataSourceID="AlbumListODS"
+        <asp:ListView ID="AlbumList" runat="server" 
+            DataSourceID="AlbumListODS" 
             InsertItemPosition="FirstItem"
-            DataKeyName="AlbumId">
+             DataKeyNames="AlbumId">
 
             <AlternatingItemTemplate>
                 <tr style="background-color: #FFFFFF; color: #284775;">
                     <td>
-                        <asp:Button runat="server" CommandName="Delete" 
-                            Text="Delete" ID="DeleteButton"
-                            OnClientClick="return confirm('Are you sure you wish to remove this album?')" />
+                        <asp:Button runat="server" CommandName="Delete" Text="Delete" ID="DeleteButton" />
                         <asp:Button runat="server" CommandName="Edit" Text="Edit" ID="EditButton" />
                     </td>
                     <td>
@@ -50,8 +48,7 @@
                         <asp:Button runat="server" CommandName="Cancel" Text="Cancel" ID="CancelButton" />
                     </td>
                     <td>
-                        <asp:TextBox Text='<%# Bind("AlbumId") %>' runat="server" 
-                            ID="AlbumIdTextBox" /></td>
+                        <asp:TextBox Text='<%# Bind("AlbumId") %>' runat="server" ID="AlbumIdTextBox" /></td>
                     <td>
                         <asp:TextBox Text='<%# Bind("Title") %>' runat="server" ID="TitleTextBox" /></td>
                     <td>
@@ -155,10 +152,10 @@
             </SelectedItemTemplate>
         </asp:ListView>
         <asp:ObjectDataSource ID="AlbumListODS" runat="server" 
-            DataObjectTypeName="ChinookSystem.ViewModels.AlbumItem" 
-            DeleteMethod="Album_Delete" 
-            InsertMethod="Album_Add" 
-            SelectMethod="Albums_List" 
+            DataObjectTypeName="ChinookSystem.ViewModels.AlbumItem"
+            DeleteMethod="Album_Delete"
+            InsertMethod="Album_Add"
+            SelectMethod="Albums_List"
             UpdateMethod="Album_Update"
             OldValuesParameterFormatString="original_{0}"
             TypeName="ChinookSystem.BLL.AlbumController">
