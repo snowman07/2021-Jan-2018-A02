@@ -18,6 +18,12 @@
     <div class="row">
         <div class="offset-2">
             <uc1:MessageUserControl runat="server" ID="MessageUserControl" />
+            <asp:ValidationSummary ID="ValidationSummaryEdit" runat="server" 
+                 HeaderText="Following are concerns with your dataa while editing"
+                 ValidationGroup="egroup"/>
+            <asp:ValidationSummary ID="ValidationSummaryInsert" runat="server"
+                HeaderText="Following are concerns with your dataa while inserting"
+                 ValidationGroup="igroup"/>
         </div>
     </div>
     <div class="row">
@@ -65,16 +71,32 @@
                 </tr>
             </AlternatingItemTemplate>
             <EditItemTemplate>
+                <%-- validation controls will be placed inside the associate Template 
+                    The ID of the validated control needs to be unique
+                    The validation controls for a particular Template needs to be grouped***
+                    
+                    The validation executes ONLY on the use of the template where the grouped is
+                        tied to the Button --%>
+                <asp:RequiredFieldValidator ID="RequiredTitleE" runat="server" 
+                    ErrorMessage="Album title is required when editting."
+                     ControlToValidate="TitleTextBoxE" Display="None"
+                     ValidationGroup="egroup">
+                </asp:RequiredFieldValidator>
                 <tr style="background-color: #999999;">
                     <td>
-                        <asp:Button runat="server" CommandName="Update" Text="Update" ID="UpdateButton" />
+                        <%-- tie the button to the appropriate validation group
+                            FAILURE to tie the button to the appropriate group will cause
+                            ALL validation on the page to execute--%>
+                        <asp:Button runat="server" CommandName="Update" 
+                            Text="Update" ID="UpdateButton" 
+                             ValidationGroup="egroup"/>
                         <asp:Button runat="server" CommandName="Cancel" Text="Cancel" ID="CancelButton" />
                     </td>
                     <td>
                         <asp:TextBox Text='<%# Bind("AlbumId") %>' runat="server" 
                             ID="AlbumIdTextBox" width="50px" Enabled="false" /></td>
                     <td>
-                        <asp:TextBox Text='<%# Bind("Title") %>' runat="server" ID="TitleTextBox" /></td>
+                        <asp:TextBox Text='<%# Bind("Title") %>' runat="server" ID="TitleTextBoxE" /></td>
                     <td>
                         <asp:DropDownList ID="ArtistList" runat="server" 
                             DataSourceID="ArtistListODS" 
@@ -100,16 +122,23 @@
                 </table>
             </EmptyDataTemplate>
             <InsertItemTemplate>
+                <asp:RequiredFieldValidator ID="RequiredTitleI" runat="server" 
+                    ErrorMessage="Album title is required when inserting."
+                     ControlToValidate="TitleTextBoxI" Display="None"
+                     ValidationGroup="igroup">
+                </asp:RequiredFieldValidator>
                 <tr style="">
                     <td>
-                        <asp:Button runat="server" CommandName="Insert" Text="Insert" ID="InsertButton" />
+                        <asp:Button runat="server" CommandName="Insert" 
+                            Text="Insert" ID="InsertButton" 
+                             ValidationGroup="igroup"/>
                         <asp:Button runat="server" CommandName="Cancel" Text="Clear" ID="CancelButton" />
                     </td>
                     <td>
                         <asp:TextBox Text='<%# Bind("AlbumId") %>' runat="server" 
                             ID="AlbumIdTextBox" width="50px" Enabled="false" /></td>
                     <td>
-                        <asp:TextBox Text='<%# Bind("Title") %>' runat="server" ID="TitleTextBox" /></td>
+                        <asp:TextBox Text='<%# Bind("Title") %>' runat="server" ID="TitleTextBoxI" /></td>
                     <td>
                         <asp:DropDownList ID="ArtistList" runat="server" 
                             DataSourceID="ArtistListODS" 
