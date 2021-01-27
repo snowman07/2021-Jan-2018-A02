@@ -35,6 +35,7 @@ namespace ChinookSystem.BLL
         }
 
 
+        // -----------------Coded on Jan 15, 2021 Friday Week02(result page is SearchByDDL)
         [DataObjectMethod(DataObjectMethodType.Select, false)]
         public List<ArtistAlbums> Albums_GetAlbumsForArtist(int artistid)
         {

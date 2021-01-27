@@ -13,6 +13,7 @@ using System.ComponentModel; //for ODS wizard
 
 namespace ChinookSystem.BLL
 {
+    // -----------------Coded on Jan 15, 2021 Friday Week02(result page is SearchByDDL)
     [DataObject]
     public class ArtistController
     {

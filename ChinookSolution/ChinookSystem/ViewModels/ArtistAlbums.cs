@@ -14,6 +14,6 @@ namespace ChinookSystem.ViewModels
 
         public string ArtistName { get; set; }
 
-        public int ArtistId { get; set; }
+        public int ArtistId { get; set; } // -----------Added on Jan 15, 2021 Friday Week02(result page is SearchByDDL)
     }
 }

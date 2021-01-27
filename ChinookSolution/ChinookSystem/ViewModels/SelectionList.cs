@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChinookSystem.ViewModels
 {
+    // -----------------Coded on Jan 15, 2021 Friday Week02(result page is SearchByDDL)
     public class SelectionList
     {
         //value field of the instance

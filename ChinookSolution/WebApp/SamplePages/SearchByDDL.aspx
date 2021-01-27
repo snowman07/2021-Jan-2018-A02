@@ -20,12 +20,16 @@
         </div>
     </div>
     <br /><br />
+    <%-- message area --%>
     <div class="row">
         <div class="offset-3">
             <%--<asp:Label ID="Message" runat="server" ></asp:Label>--%>
             <uc1:MessageUserControl runat="server" ID="MessageUserControl" />
         </div>
     </div>
+    <%-- END OF message area --%>
+
+    <%-- ODS and GridView area --%>
     <div class="row">
         <div class="offset-3">
             <asp:GridView ID="ArtistAlbumList" runat="server" 
@@ -72,4 +76,5 @@
             </asp:ObjectDataSource>
         </div>
     </div>
+    <%-- END OF ODS and GridView area --%>
 </asp:Content>
