@@ -16,7 +16,7 @@ namespace ChinookSystem.BLL
     [DataObject] // to expose the class
     public class AlbumController // interface to the outside
     {
-        #region Queries
+        #region Query used for ArtistAlbums.aspx page
         //method to return data to dump or expose to the wizard. Select(query) . False=not the default query
         [DataObjectMethod(DataObjectMethodType.Select, false)]
         public List<ArtistAlbums> Albums_GetArtistAlbums()
@@ -33,8 +33,9 @@ namespace ChinookSystem.BLL
                 return results.ToList();
             }
         }
+        #endregion
 
-
+        #region Query used for SearchByDDL.aspx page
         // -----------------Coded on Jan 15, 2021 Friday Week02(result page is SearchByDDL)
         [DataObjectMethod(DataObjectMethodType.Select, false)]
         public List<ArtistAlbums> Albums_GetAlbumsForArtist(int artistid)
@@ -53,7 +54,9 @@ namespace ChinookSystem.BLL
                 return results.ToList();
             }
         }
+        #endregion
 
+        #region Queries used for ListViewODSCRUD.aspx page
         //query to return all data of the Album table
 
         //method to return data to dump or expose to the wizard. Select(query) . False=not the default query
@@ -77,14 +80,14 @@ namespace ChinookSystem.BLL
 
         //query to look up an Album record by PK
         [DataObjectMethod(DataObjectMethodType.Select, false)]
-        public AlbumItem Albums_FindById(int albumid)
+        public AlbumItem Albums_FindById(int albumid) //this is just a single record thats why List<> and IEnumerable<> is not used
         {
             using (var context = new ChinookSystemContext())
             {
                 // (...).FirstOrDefault will return either
                 //      a) the first record matching the where condition
                 //      b) a null value
-                AlbumItem results = (from x in context.Albums
+                AlbumItem results = (from x in context.Albums 
                               where x.AlbumId == albumid
                             select new AlbumItem
                             {
@@ -97,14 +100,13 @@ namespace ChinookSystem.BLL
                 return results;
             }
         }
-
         #endregion
 
         #region Add, Update and Delete CRUD
 
         //Add
         [DataObjectMethod(DataObjectMethodType.Insert, false)]
-        public int Album_Add(AlbumItem item)
+        public int Album_Add(AlbumItem item) // this will return PK
         {
             using (var context = new ChinookSystemContext())
             {
@@ -117,6 +119,7 @@ namespace ChinookSystem.BLL
                 {
                     //why no PK set?
                     //PK is an identity PK, no value is needed
+                    //However, if PK is NOT an identity spec(Identity Specification = No in the DB), ADD PK here!!!
                     Title = item.Title,
                     ArtistId = item.ArtistId,
                     ReleaseYear = item.ReleaseYear,
