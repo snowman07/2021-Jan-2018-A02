@@ -64,6 +64,16 @@ namespace WebApp.SamplePages
             }
             else
             {
+
+                ////CODE WITHOUT MessageUserControl
+                ////standard lookup and assignment
+                //AlbumController sysmgr = new AlbumController();
+                //List<ChinookSystem.ViewModels.ArtistAlbums> info = sysmgr.Albums_GetAlbumsForArtist(
+                //    int.Parse(ArtistList.SelectedValue));
+                //ArtistAlbumList.DataSource = info;
+                //ArtistAlbumList.DataBind();
+
+
                 //user friendly error handling
                 //normally when you leave your web page to your class library,
                 //      you will want to have an error handling. (aka try/catch
