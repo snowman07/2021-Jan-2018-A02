@@ -78,8 +78,8 @@ select new
 {
 	Title = x.Title,
 	Year = x.ReleaseYear,
-	(Decade = 	x.ReleaseYear >= 1970 && x.ReleaseYear < 1980  ? "70's" : 
-				x.ReleaseYear >= 1980 && x.ReleaseYear < 1990  ? "80's" : "90's";
+	Decade = 	x.ReleaseYear >= 1970 && x.ReleaseYear < 1980  ? "70's" : 
+				(x.ReleaseYear >= 1980 && x.ReleaseYear < 1990  ? "80's" : "90's")
 }
 
 
