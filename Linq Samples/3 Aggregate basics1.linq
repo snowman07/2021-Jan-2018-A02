@@ -50,19 +50,36 @@ ex2m.Dump();
 //What is the shortest playtime of a track released in 1990.
 var ex2qs = (from x in Tracks
 			where x.Album.ReleaseYear == 1990
-			select x.Bytes).Min();
-ex2q.Dump();
+			select x.Milliseconds).Min();
+ex2qs.Dump();
 
 var ex2ms = Tracks
 			.Where(x => x.Album.ReleaseYear == 1990)
-			.Sum(x => x.Bytes);
-ex2m.Dump();
+			.Min(x => x.Milliseconds);
+ex2ms.Dump();
 
 
 //What is the longest playtime of a track released in 1990.
+var ex2qm = (from x in Tracks
+			where x.Album.ReleaseYear == 1990
+			select x.Milliseconds).Max();
+ex2qm.Dump();
+
+var ex2mm = Tracks
+			.Where(x => x.Album.ReleaseYear == 1990)
+			.Max(x => x.Milliseconds);
+ex2mm.Dump();
 
 
 //What is the average playtime of a track released in 1990.
-			
+var ex2qa = (from x in Tracks
+			where x.Album.ReleaseYear == 1990
+			select x.Milliseconds).Average();
+ex2qa.Dump();
+
+var ex2ma = Tracks
+			.Where(x => x.Album.ReleaseYear == 1990)
+			.Average(x => x.Milliseconds);
+ex2ma.Dump();		
 			
 			
