@@ -115,14 +115,14 @@ var ex2m = Albums
 				Year = x.ReleaseYear,
 				NumberOfTracks = x.Tracks.Count(),
 				totalprice = x.Tracks.Sum(tr => tr.UnitPrice),
-				longestm = x.Tracks.Max(tr => tr.Milliseconds),
-				longestq = (from y in x.Tracks
+				longestm = x.Tracks.Max(tr => tr.Milliseconds),	//metnod syntax for longest
+				longestq = (from y in x.Tracks					// query syntax for longest
 							select y.Milliseconds).Max(),
 				longesttrackname = (from y in x.Tracks
 									where y.Milliseconds == x.Tracks.Max(tr => tr.Milliseconds)
-									select y.Name),
+									select y.Name).FirstOrDefault(),
 				shortestq = (from y in x.Tracks
-							select y.Milliseconds / 1000.0).Max(),
+							select y.Milliseconds / 1000.0).Min(),
 				averagelength = x.Tracks.Average(tr => tr.Milliseconds)
 			});
 ex2m.Dump();
