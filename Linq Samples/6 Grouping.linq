@@ -80,12 +80,17 @@ resultsgroupbyReport.Dump();
 
 //group by an entity
 var groupAlbumsbyArtist = from x in Albums
+							//orderby x.Artist.Name
+							where x.ReleaseYear > 1969 && x.ReleaseYear < 1980
 							group x by x.Artist into gArtistAlbums
+							orderby gArtistAlbums.Key.Name
+							where gArtistAlbums.Count() >1
 							select new
 							{
 								KeyValue = gArtistAlbums.Key.Name,
 								numberofAlbums = gArtistAlbums.Count(),
 								albumandartist = from y in gArtistAlbums
+													orderby y.ReleaseYear
 													select new
 													{
 														Title = y.Title,
