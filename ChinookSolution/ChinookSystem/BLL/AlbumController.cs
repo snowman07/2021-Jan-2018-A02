@@ -90,6 +90,7 @@ namespace ChinookSystem.BLL
                 //  to retrieve the database record on the primary key
                 //  return context.DbSetname.Find(xxx);
                 //---------------------------
+
                 // (...).FirstOrDefault will return either
                 //      a) the first record matching the where condition
                 //      b) a null value
