@@ -84,6 +84,12 @@ namespace ChinookSystem.BLL
         {
             using (var context = new ChinookSystemContext())
             {
+                //----Feb 10, 2020 lesson----
+                //in CPSC1517, when entities were public, we could use 
+                //  the entityFramework method extension .Find(xxx)
+                //  to retrieve the database record on the primary key
+                //  return context.DbSetname.Find(xxx);
+                //---------------------------
                 // (...).FirstOrDefault will return either
                 //      a) the first record matching the where condition
                 //      b) a null value
