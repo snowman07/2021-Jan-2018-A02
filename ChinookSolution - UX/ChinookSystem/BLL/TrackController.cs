@@ -54,7 +54,21 @@ namespace ChinookSystem.BLL
             {
                 List<TrackList> results = null;
 
-               //code to go here
+                results = (from x in context.Tracks
+                           where (tracksby.Equals("Artist") && x.Album.Artist.Name.Contains(arg)) ||
+                                   (tracksby.Equals("Album") && x.Album.Title.Contains(arg))
+                           select new TrackList
+                           {
+                               TrackID = x.TrackId,
+                               Name = x.Name,
+                               Title = x.Album.Title,
+                               ArtistName = x.Album.Artist.Name,
+                               GenreName = x.Genre.Name,
+                               Composer = x.Composer,
+                               Milliseconds = x.Milliseconds,
+                               Bytes = x.Bytes,
+                               UnitPrice = x.UnitPrice
+                           }).ToList();
 
                 return results;
             }
