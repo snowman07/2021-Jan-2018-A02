@@ -92,9 +92,41 @@ namespace WebApp.SamplePages
 
         protected void GenreFetch_Click(object sender, EventArgs e)
         {
+            TracksBy.Text = "Genre";
+            //the HiddenField content access is .Value NOT .Text
+            //if (string.IsNullOrEmpty(ArtistName.Text))
+            //{
+            //    MessageUserControl.ShowInfo("You did not supply an artist name.");
+            //the HiddenField content access is .Value NOT .Text
+            //    SearchArg.Value = "zxcvg";
+            //}
+            //else
+            //{
+            //    //the HiddenField content access is .Value NOT .Text
+            //    SearchArg.Value = ArtistName.Text;
+            //}
 
-                //code to go here
 
+            ////---------SECOND WAY TO DISPLAY RESULTS OF GENRE, ALBUM and ARTIST
+            //// if you had a prompt in your ddl, you would verify that a
+            ////      selection was made
+            //// you could use the value field of the dropdownlist
+            //SearchArg.Value = GenreDDL.SelectedValue;
+            ////---------ENDOF  SECOND WAY TO DISPLAY RESULTS OF GENRE, ALBUM and ARTIST
+
+            ////---------THIRD WAY TO DISPLAY RESULTS OF GENRE, ALBUM and ARTIST using SelectedItem
+            // Can I use something else from the ddl instead of the value field???
+            // there is the display field
+            // WARNING: using the display field for the local, in this example, is possible
+            //      bec EACH description is unique!!!!
+            SearchArg.Value = GenreDDL.SelectedItem.Text;
+            ////---------ENDOF THIRD WAY TO DISPLAY RESULTS OF GENRE, ALBUM and ARTIST using SelectedItem
+
+
+
+            // to force the re-execution of an ODS attached to a display control
+            //      rebind the display control
+            TracksSelectionList.DataBind();
         }
 
         protected void AlbumFetch_Click(object sender, EventArgs e)
