@@ -107,12 +107,12 @@ namespace WebApp.SamplePages
             //}
 
 
-            ////---------SECOND WAY TO DISPLAY RESULTS OF GENRE, ALBUM and ARTIST
+            ////----APPLICABLE TO ONE AND SECOND WAY TO DISPLAY RESULTS OF GENRE, ALBUM and ARTIST (found in TrackController)
             //// if you had a prompt in your ddl, you would verify that a
             ////      selection was made
             //// you could use the value field of the dropdownlist
             //SearchArg.Value = GenreDDL.SelectedValue;
-            ////---------ENDOF  SECOND WAY TO DISPLAY RESULTS OF GENRE, ALBUM and ARTIST
+            ////----ENDOF APPLICABLE TO ONE AND SECOND WAY TO DISPLAY RESULTS OF GENRE, ALBUM and ARTIST (found in TrackController)
 
             ////---------THIRD WAY TO DISPLAY RESULTS OF GENRE, ALBUM and ARTIST using SelectedItem
             // Can I use something else from the ddl instead of the value field???

@@ -92,6 +92,28 @@ namespace ChinookSystem.BLL
                 //}
                 //----------ENDOF  THIS IS ONE WAY TO INCORPORATE Artist Search and Album Search
 
+                //----------THIS IS SECOND WAY TO INCORPORATE Artist Search and Album Search
+                //results = (from x in context.Tracks
+                //               //where x.Album.Artist.Name.Contains(arg)
+                //           where (tracksby.Equals("Artist") && x.Album.Artist.Name.Contains(arg)) ||
+                //                   (tracksby.Equals("Album") && x.Album.Title.Contains(arg))
+                //           select new TrackList
+                //           {
+                //               TrackID = x.TrackId,
+                //               Name = x.Name,
+                //               Title = x.Album.Title,
+                //               ArtistName = x.Album.Artist.Name,
+                //               GenreName = x.Genre.Name,
+                //               Composer = x.Composer,
+                //               Milliseconds = x.Milliseconds,
+                //               Bytes = x.Bytes,
+                //               UnitPrice = x.UnitPrice
+                //           }).ToList();
+                //----------ENDOF  THIS IS SECOND WAY TO INCORPORATE Artist Search and Album Search
+
+
+
+
 
                 //---------ONE WAY TO DISPLAY RESULTS OF GENRE, ALBUM and ARTIST
                 //int id = 0;
