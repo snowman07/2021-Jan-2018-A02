@@ -61,8 +61,16 @@
                             <%--<span aria-hidden="true" class="glyphicon glyphicon-plus">&nbsp;</span>--%>
                             <i class="fa fa-plus" style="color:red; font-size:2em;"></i>&nbsp;
                         </asp:LinkButton>
+                        <%-- IF THERES ANOTHER BUTTON, NEED TO ADD CommandName attribute --%>
+                        <%--<asp:LinkButton ID="LinkButton1" runat="server" CommandName="OptionB"
+                             CssClass="btn" CommandArgument='<%# Eval("TrackID") %>'>
+                            <i class="fa fa-plus" style="color:red; font-size:2em;"></i>&nbsp;
+                        </asp:LinkButton>--%>
                         </td>
                     <td>
+                        <%-- THIS IS TO HIDE TrackID --%>
+                        <%--<asp:Label Text='<%# Eval("TrackID") %>' runat="server"
+                            ID="TrackIDLabel" Visible="false"></asp:Label>--%>
                         <asp:Label Text='<%# Eval("Name") %>' runat="server" ID="NameLabel" /></td>
                     <td>
                         <asp:Label Text='<%# Eval("Title") %>' runat="server" ID="TitleLabel" /></td>
@@ -138,7 +146,8 @@
                         </td>
                     </tr>
                     <tr runat="server">
-                        <td runat="server" style="text-align: center; background-color: #5D7B9D; font-family: Verdana, Arial, Helvetica, sans-serif; color: #FFFFFF">
+                        <td runat="server" style="text-align: center; background-color: #c0c0c0; 
+                            font-family: Verdana, Arial, Helvetica, sans-serif; color: #FFFFFF">
                             <asp:DataPager runat="server" ID="DataPager1" PageSize="5" PagedControlID="TracksSelectionList">
                                 <Fields>
                                     <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False"></asp:NextPreviousPagerField>
