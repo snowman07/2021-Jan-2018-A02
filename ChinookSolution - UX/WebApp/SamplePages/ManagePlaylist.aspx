@@ -21,35 +21,51 @@
  <div class="row">
 
     <div class="offset-1 col-sm-2">
+        <%-- ------------------------------------------------------- --%>
+        <%------------------- START OF ARTIST FETCH -------------------%>
         <asp:Label ID="Label1" runat="server" Text="Artist" ></asp:Label><br />
         <asp:TextBox ID="ArtistName" runat="server"
             Width="150px" placeholder="artist name">
         </asp:TextBox><br />
         <asp:Button ID="ArtistFetch" runat="server" Text="Fetch" 
             OnClick="ArtistFetch_Click"/>
+        <%-------------------- END OF ARTIST FETCH --------------------%>
+        <%-- ------------------------------------------------------- --%>
         <br /><br />
-         <asp:Label ID="Label3" runat="server" Text="Genre"></asp:Label><br />
+        <%-- ------------------------------------------------------- --%>
+        <%------------------- START OF GENRE FETCH --------------------%>
+        <asp:Label ID="Label3" runat="server" Text="Genre"></asp:Label><br />
         <asp:DropDownList ID="GenreDDL" runat="server"
             Width="150px" DataSourceID="GenreDDLODS" 
             DataTextField="DisplayField" 
             DataValueField="ValueField">
         </asp:DropDownList><br />
-        <asp:Button ID="GenreFetch" runat="server" Text="Fetch" OnClick="GenreFetch_Click" 
-            />
+        <asp:Button ID="GenreFetch" runat="server" Text="Fetch" OnClick="GenreFetch_Click"/>
+        <%-------------------- END OF GENRE FETCH ---------------------%>
+        <%-- ------------------------------------------------------- --%>
         <br /><br />
-         <asp:Label ID="Label4" runat="server" Text="Album"></asp:Label><br />
+        <%-- ------------------------------------------------------- --%>
+        <%------------------- START OF ALBUM FETCH --------------------%>
+        <asp:Label ID="Label4" runat="server" Text="Album"></asp:Label><br />
         <asp:TextBox ID="AlbumTitle" runat="server"
             Width="150px" placeholder="album title">
         </asp:TextBox><br />
-        <asp:Button ID="AlbumFetch" runat="server" Text="Fetch" OnClick="AlbumFetch_Click"
-             />
+        <asp:Button ID="AlbumFetch" runat="server" Text="Fetch" OnClick="AlbumFetch_Click"/>
+        <%-------------------- END OF ALBUM FETCH ---------------------%>
+        <%-- ------------------------------------------------------- --%>
         <br /><br />
     </div>
+     <%-- END OF class="offset-1 col-sm-2" --%>
+
+
     <div class="col-sm-9">
         <asp:Label ID="Label5" runat="server" Text="Tracks"></asp:Label>&nbsp;&nbsp;
         <asp:Label ID="TracksBy" runat="server" ></asp:Label>&nbsp;&nbsp;
         <%--<asp:Label ID="SearchArg" runat="server" ></asp:Label>--%>
         <asp:HiddenField ID="SearchArg" runat="server" /><br />
+
+        <%-- ------------------------------------------------------- --%>
+        <%---------------------- START OF LISTVIEW --------------------%>
         <asp:ListView ID="TracksSelectionList" runat="server"
             OnItemCommand="TracksSelectionList_ItemCommand"
             DataSourceID="TracksSelectionListODS">
@@ -161,12 +177,17 @@
             </LayoutTemplate>
 
         </asp:ListView>
-
+        <%------------------------ END OF LISTVIEW --------------------%>
+        <%-- ------------------------------------------------------- --%>
         <br /><br />
+
+        <%-- ------------------------------------------------------- --%>
+        <%--------------- START OF PLAYLISTNAME FETCH -----------------%>
         <asp:Label ID="Label6" runat="server" Text="Playlist Name:"></asp:Label>
         <asp:TextBox ID="PlaylistName" runat="server"></asp:TextBox>
-        <asp:Button ID="PlayListFetch" runat="server" Text="Fetch" OnClick="PlayListFetch_Click" 
-            />
+        <asp:Button ID="PlayListFetch" runat="server" Text="Fetch" OnClick="PlayListFetch_Click"/>
+        <%----------------- END OF PLAYLISTNAME FETCH -----------------%>
+        <%-- ------------------------------------------------------- --%>
 
         <%--enter 3 linkbuttons for move up, move down and delete --%>
         <asp:LinkButton ID="MoveUp" runat="server"
@@ -182,6 +203,9 @@
             <i class="fa fa-times" style="color:red; font-size:2em;"></i>&nbsp;
         </asp:LinkButton>
         <br /><br />
+
+        <%-- ------------------------------------------------------- --%>
+        <%--------------------- START OF GRIDVIEW ---------------------%>
         <asp:GridView ID="PlayList" runat="server" AutoGenerateColumns="False"
              Caption="PlayList" GridLines="Horizontal" BorderStyle="None">
             <Columns>
@@ -226,7 +250,10 @@
             No data to view for the playlist.
         </EmptyDataTemplate>
         </asp:GridView>
+        <%----------------------- END OF GRIDVIEW ---------------------%>
+        <%-- ------------------------------------------------------- --%>
     </div>
+    <%-- END OF class="col-sm-9" --%>
 
 </div>
  
