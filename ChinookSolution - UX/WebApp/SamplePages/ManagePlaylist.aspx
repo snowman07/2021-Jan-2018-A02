@@ -256,14 +256,19 @@
     <%-- END OF class="col-sm-9" --%>
 
 </div>
- 
+    <%-- ----------------------------------------------------------- --%>
+    <%------------------ START OF ODS FOR GENRE DDL -------------------%>
     <asp:ObjectDataSource ID="GenreDDLODS" runat="server" 
         OldValuesParameterFormatString="original_{0}" 
         SelectMethod="List_GenreNames" 
          OnSelected="SelectCheckForException"
         TypeName="ChinookSystem.BLL.GenreController">
     </asp:ObjectDataSource>
-   
+    <%------------------- END OF ODS FOR GENRE DDL --------------------%>
+    <%-- ----------------------------------------------------------- --%>
+
+    <%-- ----------------------------------------------------------- --%>
+    <%------------------ START OF ODS FOR LISTVIEW --------------------%>
     <asp:ObjectDataSource ID="TracksSelectionListODS" runat="server" 
         OldValuesParameterFormatString="original_{0}" 
         SelectMethod="List_TracksForPlaylistSelection" 
@@ -274,5 +279,7 @@
             <asp:ControlParameter ControlID="SearchArg" PropertyName="Value" Name="arg" Type="String"></asp:ControlParameter>
         </SelectParameters>
     </asp:ObjectDataSource>
+    <%------------------- END OF ODS FOR LISTVIEW ---------------------%>
+    <%-- ----------------------------------------------------------- --%>
 
 </asp:Content>
