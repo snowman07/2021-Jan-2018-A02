@@ -61,6 +61,7 @@
     <div class="col-sm-9">
         <asp:Label ID="Label5" runat="server" Text="Tracks"></asp:Label>&nbsp;&nbsp;
         <asp:Label ID="TracksBy" runat="server" ></asp:Label>&nbsp;&nbsp;
+        <%-- visible="false" --%>
         <%--<asp:Label ID="SearchArg" runat="server" ></asp:Label>--%>
         <asp:HiddenField ID="SearchArg" runat="server" /><br />
 
