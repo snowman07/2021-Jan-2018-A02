@@ -111,13 +111,13 @@ namespace WebApp.SamplePages
             //// if you had a prompt in your ddl, you would verify that a
             ////      selection was made
             //// you could use the value field of the dropdownlist
-            //SearchArg.Value = GenreDDL.SelectedValue;
+            //SearchArg.Value = GenreDDL.SelectedValue; //------->this can be used too
             ////----ENDOF APPLICABLE TO ONE AND SECOND WAY TO DISPLAY RESULTS OF GENRE, ALBUM and ARTIST (found in TrackController)
 
             ////---------THIRD WAY TO DISPLAY RESULTS OF GENRE, ALBUM and ARTIST using SelectedItem
             // Can I use something else from the ddl instead of the value field???
             // there is the display field
-            // WARNING: using the display field for the local, in this example, is possible
+            // WARNING: using the display field for the lookup, in this example, is possible
             //      bec EACH description is unique!!!!
             SearchArg.Value = GenreDDL.SelectedItem.Text;
             ////---------ENDOF THIRD WAY TO DISPLAY RESULTS OF GENRE, ALBUM and ARTIST using SelectedItem
