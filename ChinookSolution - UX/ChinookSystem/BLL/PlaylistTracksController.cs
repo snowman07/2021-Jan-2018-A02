@@ -66,6 +66,7 @@ namespace ChinookSystem.BLL
                     //there is a data error
                     //setting up an error message
                     brokenRules.Add(new BusinessRuleException<string>("Playlist name is missing. Unable to add track",
+                        //nameof("fieldnameinerror"), fieldnameinerror));
                         //nameof(playlistname), playlistname));
                         "Playlist Name", playlistname));
                 }
