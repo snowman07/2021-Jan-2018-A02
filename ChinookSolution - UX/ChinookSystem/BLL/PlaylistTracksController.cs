@@ -98,7 +98,7 @@ namespace ChinookSystem.BLL
                                         Name = playlistname,
                                         UserName = username
                                     };
-                    context.Playlists.Add(playlistExist); // parent is STAGED, in memory
+                    context.Playlists.Add(playlistExist); // parent is STAGED, still in memory and NOT been sent to DB
                     tracknumber = 1;
 
                 }
@@ -153,10 +153,10 @@ namespace ChinookSystem.BLL
 
                 //the solution to BOTH of these scenarios is to use
                 //      navigational properties during the ACTUAL .Add command
-                //      for the new playlisttrach record
-                //the entityframework will, on your behalf, encure that the 
+                //      for the new playlisttrack record
+                //the entityframework will, on your behalf, ensure that the 
                 //      adding of records to the db will be done in the
-                //      appropriate order AND will add the missing compund PK
+                //      appropriate order AND will add the missing compound PK
                 //      value (PlaylistId) to the new playlisttrack record
 
                 //NOT LIKE THIS!!!!!!! THIS IS WRONG!!!!!
