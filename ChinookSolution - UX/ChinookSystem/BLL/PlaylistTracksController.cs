@@ -235,6 +235,17 @@ namespace ChinookSystem.BLL
                 }
                 else
                 {
+                    ////due to the way LINQ executes in your program as a "lazy loader"
+                    ////we need to query directly the number of tracks in the playlist
+                    //numberoftracks = (context.PlaylistTracks
+                    //                    .Where(x => x.Playlist.Name.Equals(movetrack.PlaylistName)
+                    //                        && x.Playlist.UserName.Equals(movetrack.UserName))
+                    //                    .Select(x => x)).Count();
+                    //numberoftracks++;
+
+                    //numberoftracks = exist.PlaylistTracks.Count();
+                        
+
                     //check to see if the desired track exists on the db
                     PlaylistTrack trackexist = (from x in context.PlaylistTracks
                                                 where x.Playlist.Name.Equals(movetrack.PlaylistName) &&
