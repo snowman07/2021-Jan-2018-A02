@@ -187,6 +187,9 @@ namespace ChinookSystem.BLL
         //public void MoveTrack(string username, string playlistname, int trackid, int tracknumber, string direction)
         public void MoveTrack(MoveTrackItem movetrack)
         {
+
+            int numberoftracks = 0; // ADDED FOR FIXING THE LOGIC ERROR
+
             using (var context = new ChinookSystemContext())
             {
                 
@@ -218,7 +221,7 @@ namespace ChinookSystem.BLL
                 }
                 if (movetrack.TrackNumber <= 0)
                 {
-                    brokenRules.Add(new BusinessRuleException<int>("Invalid track identifier. Unable to remove track(s)",
+                    brokenRules.Add(new BusinessRuleException<int>("Invalid track number. Unable to remove track(s)",
                         //nameof(playlistname), playlistname));
                         "Track Number", movetrack.TrackNumber));
                 }
@@ -237,14 +240,32 @@ namespace ChinookSystem.BLL
                 {
                     ////due to the way LINQ executes in your program as a "lazy loader"
                     ////we need to query directly the number of tracks in the playlist
+
+                    //numberoftracks = (from x in context.Playlists
+                    //                  where x.Name.Equals(movetrack.PlaylistName) &&
+                    //                          x.UserName.Equals(movetrack.UserName)
+                    //                  select x).Count();
+
+                    //numberoftracks = (from x in exist.PlaylistTracks
+                    //                  where x.Playlist.Name.Equals(movetrack.PlaylistName) &&
+                    //                          x.Playlist.UserName.Equals(movetrack.UserName)
+                    //                  select x).Count();
+
+                    //numberoftracks = exist.PlaylistTracks.Count();
+
+                    //numberoftracks = (exist.PlaylistTracks.Select(x => x)).Count();
+
+                    ////----------FIRST SOL
                     //numberoftracks = (context.PlaylistTracks
                     //                    .Where(x => x.Playlist.Name.Equals(movetrack.PlaylistName)
                     //                        && x.Playlist.UserName.Equals(movetrack.UserName))
                     //                    .Select(x => x)).Count();
-                    //numberoftracks++;
+                    ////numberoftracks++; // to test the count
+                    ////----------FIRST SOL
 
-                    //numberoftracks = exist.PlaylistTracks.Count();
-                        
+                    //---------SECOND SOLUTION
+                    numberoftracks = exist.PlaylistTracks.Count();
+                    //---------SECOND SOLUTION
 
                     //check to see if the desired track exists on the db
                     PlaylistTrack trackexist = (from x in context.PlaylistTracks
@@ -283,7 +304,7 @@ namespace ChinookSystem.BLL
                                                             select x).FirstOrDefault();
                                 if (othertrack == null)
                                 {
-                                    brokenRules.Add(new BusinessRuleException<string>("Playlist track to sawp seems to be missing. Refresh your display.",
+                                    brokenRules.Add(new BusinessRuleException<string>("Playlist track to swap seems to be missing. Refresh your display.",
                                     //nameof(playlistname), playlistname));
                                     nameof(MoveTrackItem.PlaylistName), movetrack.PlaylistName));
                                 }
@@ -305,7 +326,8 @@ namespace ChinookSystem.BLL
                         {
                             //down
                             //not at bottom
-                            if (trackexist.TrackNumber == exist.PlaylistTracks.Count)
+                            //if (trackexist.TrackNumber == exist.PlaylistTracks.Count)
+                            if (trackexist.TrackNumber == numberoftracks)
                             {
                                 brokenRules.Add(new BusinessRuleException<string>("Playlist track already at the bottom. Refresh your display.",
                                 //nameof(playlistname), playlistname));
