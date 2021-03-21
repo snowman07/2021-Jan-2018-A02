@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 #region Additonal Namespaces
 using ChinookSystem.BLL;
 using ChinookSystem.ViewModels;
-
+using System.Configuration;
 #endregion
 
 namespace WebApp.SamplePages
@@ -18,6 +18,28 @@ namespace WebApp.SamplePages
         protected void Page_Load(object sender, EventArgs e)
         {
             TracksSelectionList.DataSource = null;
+
+            //security code for forms security
+            //check to see if the user is logged on
+            if (Request.IsAuthenticated)
+            {
+                //logged in
+                //Do you have the authority to be on this page
+                if (User.IsInRole(ConfigurationManager.AppSettings["customerRole"]))
+                {
+                    //authorized
+                    LoggedUser.Text = User.Identity.Name;
+                }
+                else
+                {
+                    //not authorized
+                    Response.Redirect("~/SamplePages/AccessDenied.aspx");
+                }
+            }
+            else
+            {
+                Response.Redirect("~/Account/Login.aspx");
+            }
         }
 
         #region MessageUserControl Error Handling for ODS
