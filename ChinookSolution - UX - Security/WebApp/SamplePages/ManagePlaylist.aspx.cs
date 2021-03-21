@@ -9,6 +9,7 @@ using System.Web.UI.WebControls;
 using ChinookSystem.BLL;
 using ChinookSystem.ViewModels;
 using System.Configuration;
+using WebApp.Security;
 #endregion
 
 namespace WebApp.SamplePages
@@ -28,12 +29,25 @@ namespace WebApp.SamplePages
                 if (User.IsInRole(ConfigurationManager.AppSettings["customerRole"]))
                 {
                     //authorized
-                    LoggedUser.Text = User.Identity.Name;
+                    //obtain the CustomerId on the security User record
+                    SecurityController ssysmgr = new SecurityController();
+                    //pass the value of the username to the method GetCurrentCustomerId
+                    //returned: customerid (int?)
+                    int? customerid = ssysmgr.GetCurrentUserCustomerId(User.Identity.Name);
+                    //need to convert the nullable int into a normal int for lookup to the  
+                    //      CustomerController in my BLL
+                    //int custid = customerid != null ? int.Parse(customerid.ToString()) : default(int);
+                    //short hand
+                    int custid = customerid ?? default(int);
+                    //use the custid to do the standard customer record lookup
+
+
+                    LoggedUser.Text = custid.ToString();
                 }
                 else
                 {
                     //not authorized
-                    Response.Redirect("~/SamplePages/AccessDenied.aspx");
+                    Response.Redirect("~/SamplePages/DeniedAccess.aspx");
                 }
             }
             else
@@ -176,7 +190,11 @@ namespace WebApp.SamplePages
             //username is coming from the system via security
             //since security has yet to be installed, a default will be setup for the 
             //      username value
-            string username = "HansenB";
+            //string username = "HansenB";
+
+
+            //now that security is in place, we will use the User instance to get the username
+            string username = User.Identity.Name;
             if (string.IsNullOrEmpty(PlaylistName.Text))
             {
                 MessageUserControl.ShowInfo("Playlist Search", "No playlist name was supplied.");

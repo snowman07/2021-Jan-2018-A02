@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="BLL\AlbumController.cs" />
     <Compile Include="BLL\ArtistController.cs" />
+    <Compile Include="BLL\CustomerController.cs" />
     <Compile Include="BLL\EmployeeController.cs" />
     <Compile Include="BLL\GenreController.cs" />
     <Compile Include="BLL\PlaylistTracksController.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\AlbumItem.cs" />
     <Compile Include="ViewModels\ArtistAlbums.cs" />
+    <Compile Include="ViewModels\CustomersOfCountryEmail.cs" />
     <Compile Include="ViewModels\CustomerSupportItem.cs" />
     <Compile Include="ViewModels\EmployeeCustomerList.cs" />
     <Compile Include="ViewModels\MoveTrackItem.cs" />
