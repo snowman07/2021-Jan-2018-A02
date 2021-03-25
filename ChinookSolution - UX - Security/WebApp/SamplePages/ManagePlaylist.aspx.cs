@@ -30,7 +30,7 @@ namespace WebApp.SamplePages
                 {
                     //authorized
 
-                    LoggedUser.Text = User.Identity.Name; // use to display the username
+                   
 
                     //obtain the CustomerId on the security User record
                     SecurityController ssysmgr = new SecurityController();
@@ -44,7 +44,7 @@ namespace WebApp.SamplePages
                     int custid = customerid ?? default(int);
                     //use the custid to do the standard customer record lookup
 
-
+                    //LoggedUser.Text = User.Identity.Name; // use to display the username
                     LoggedUser.Text = custid.ToString();
                 }
                 else
