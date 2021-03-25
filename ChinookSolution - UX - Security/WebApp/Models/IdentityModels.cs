@@ -18,9 +18,10 @@ namespace WebApp.Models
     // You can add User data for the user by adding more properties to your User class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
-        
+
         #region Customized properties to hold customer and employee identifiers
-        //add an integer?  field for each id
+        //add an integer?  field for each id // in this web app, can be either an Employee or a Customer
+        //ref: https://dmit-2018.github.io/demos/Northwind/Security/#customizing-the-applicationuser
         public int? CustomerId { get; set; }
         public int? EmployeeId { get; set; }
         #endregion
