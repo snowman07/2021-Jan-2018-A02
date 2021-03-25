@@ -26,9 +26,12 @@ namespace WebApp.SamplePages
             {
                 //logged in
                 //Do you have the authority to be on this page
-                if (User.IsInRole(ConfigurationManager.AppSettings["customerRole"]))
+                if (User.IsInRole(ConfigurationManager.AppSettings["customerRole"])) // put OR here for multiple users
                 {
                     //authorized
+
+                    LoggedUser.Text = User.Identity.Name; // use to display the username
+
                     //obtain the CustomerId on the security User record
                     SecurityController ssysmgr = new SecurityController();
                     //pass the value of the username to the method GetCurrentCustomerId
