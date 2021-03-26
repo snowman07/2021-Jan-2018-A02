@@ -46,6 +46,10 @@ namespace WebApp.SamplePages
 
                     //LoggedUser.Text = User.Identity.Name; // use to display the username
                     LoggedUser.Text = custid.ToString();
+
+                    //CustomerController sysmgr = new CustomerController();
+                    //string customerName = sysmgr.Customer_GetCustomersForCountryAndEmail(custid);
+                    //LoggedUser.Text = customerName;
                 }
                 else
                 {
