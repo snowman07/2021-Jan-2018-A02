@@ -59,4 +59,68 @@
     <%-- END OF MULTIVIEW AREA --%>
 
 
+
+    <%-- START OF PANEL VIEW --%>
+    <br/><br/><br/>
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#shopping" data-toggle="tab" id="shoppingOpen">Continue Shopping</a>
+                </li>
+                <li>
+                    <a href="#shoppingcart" data-toggle="tab" id="cartOpen">View Cart</a>               
+                </li>
+                <li>
+                    <a href="#checkout" data-toggle="tab" id="checkoutOpen">Checkout</a>
+                </li>
+            </ul>
+            <br/>
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="shopping">
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                        <ContentTemplate>
+                            <asp:Label ID="Label5" runat="server" Text="Continue Shopping"></asp:Label>
+                            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                            <asp:Button ID="Add" runat="server" Text="Add to 2nd tab" OnClick="Add_Click"/>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </div>
+                <div class="tab-pane" id="shoppingcart">
+                    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                        <ContentTemplate>
+                            <asp:Label ID="Label6" runat="server" Text="View Cart"></asp:Label>
+                            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                            <asp:Button ID="Checkout" runat="server" Text="Send to checkout 3rd tab" OnClick="Checkout_Click"/>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </div>
+                <div class="tab-pane" id="checkout">
+                    <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                        <ContentTemplate>
+                            <asp:Label ID="Label7" runat="server" Text="Checkout"></asp:Label>
+                            <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <%-- END OF PANEL VIEW --%>
+
+    <script>
+        function openCart() {
+            $('#cartOpen').trigger('click')
+            return false;
+        }
+        function openShopping() {
+            $('#shoppingOpen').trigger('click')
+        }
+        function openCheckout() {
+            $('#checkoutOpen').trigger('click')
+        }
+    </script>
+
 </asp:Content>

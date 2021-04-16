@@ -61,5 +61,16 @@ namespace WebApp.SamplePages
         {
 
         }
+
+        protected void Add_Click(object sender, EventArgs e)
+        {
+            TextBox2.Text = TextBox1.Text;
+        }
+
+        protected void Checkout_Click(object sender, EventArgs e)
+        {
+            TextBox3.Text = TextBox2.Text;
+        }
+
     }
 }
