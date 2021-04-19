@@ -82,7 +82,13 @@
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                         <ContentTemplate>
                             <asp:Label ID="Label5" runat="server" Text="Continue Shopping"></asp:Label>
-                            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="TextBox1" runat="server"
+                                 TextMode="Number"
+                                min="1"
+                                max="999"
+                                step="1"
+                                Text="1">
+                            </asp:TextBox>
                             <asp:Button ID="Add" runat="server" Text="Add to 2nd tab" OnClick="Add_Click"/>
                         </ContentTemplate>
                     </asp:UpdatePanel>
@@ -91,7 +97,13 @@
                     <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                         <ContentTemplate>
                             <asp:Label ID="Label6" runat="server" Text="View Cart"></asp:Label>
-                            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="TextBox2" runat="server"
+                                TextMode="Number"
+                                min="1"
+                                max="999"
+                                step="1"
+                                Text="1">
+                            </asp:TextBox>
                             <asp:Button ID="Checkout" runat="server" Text="Send to checkout 3rd tab" OnClick="Checkout_Click"/>
                         </ContentTemplate>
                     </asp:UpdatePanel>
